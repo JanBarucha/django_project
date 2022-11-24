@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-uef_za-cpl+ck4fhg%7#v8ll)=u$qrl32chnr@+9yptd$$_!xb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jb-blog-post.herokuapp.com']
 
 # Application definition
 
@@ -129,4 +129,5 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGOUT_REDIRECT_URL = 'logout'
 
 LOGIN_URL = 'login'
+
 
