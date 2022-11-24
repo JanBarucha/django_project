@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+import django_heroku
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +26,7 @@ SECRET_KEY = 'django-insecure-uef_za-cpl+ck4fhg%7#v8ll)=u$qrl32chnr@+9yptd$$_!xb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jb-blog-post.herokuapp.com']
+ALLOWED_HOSTS = ['jb-blog-post.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -130,4 +132,4 @@ LOGOUT_REDIRECT_URL = 'logout'
 
 LOGIN_URL = 'login'
 
-
+django_heroku.settings(locals())
