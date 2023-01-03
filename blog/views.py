@@ -1,12 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from rest_framework.views import APIView
+
+from .models import Post,GameBoard
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from blog.serializers import PostSerializer
+from blog.serializers import PostSerializer,GameBoardSerializer
+
 
 
 # Create your views here.
@@ -113,3 +116,11 @@ def post_detail(request, pk):
     elif request.method == 'DELETE':
         post.delete()
         return HttpResponse(status=204)
+
+
+    class BoardsList(APIView):
+
+        def get(self, request, format=None):
+            boards = GameBoard.objects.all()
+            serializer = GameBoardSerializer(boards, many=True)
+

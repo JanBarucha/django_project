@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+
+class GameBoard(models.Model):
+    title = models.CharField(max_length=40)
+    score = models.IntegerField()
+    additional_info = models.TextField()

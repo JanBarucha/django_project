@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from blog.models import Post
+from blog.models import Post,GameBoard
 
 
 
@@ -20,4 +20,11 @@ class PostSerializer(serializers.ModelSerializer):
         return instance
 """
 
-
+class GameBoardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GameBoard
+        fields = [
+            'id',
+            'title',
+            'score'
+        ]
